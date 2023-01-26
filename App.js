@@ -13,13 +13,13 @@ export default function App() {
     8,
     9,
     'x',
-    6,
-    5,
     4,
+    5,
+    6,
     '-',
-    3,
-    2,
     1,
+    2,
+    3,
     '+',
     0,
     '.',
@@ -66,7 +66,7 @@ export default function App() {
     }
     switch (buttonPressed) {
       case 'DEL':
-        setCurrentNumber(currentNumber.substring(0, currentNumber.length - 2));
+        setCurrentNumber(currentNumber.substring(0, currentNumber.length - 1));
         return;
       case 'LIMPAR': // Limpa todo o conteúdo
         setLastNumber('');
@@ -77,6 +77,7 @@ export default function App() {
         calculator();
         return;
       case '+/-':
+        setCurrentNumber(currentNumber * -1);
         return;
     }
 
@@ -98,7 +99,7 @@ export default function App() {
             <TouchableOpacity
               onPress={() => handleInput(button)}
               key={button}
-              style={[styles.button, {backgroundColor: '#3dd0e3'}]}>
+              style={[styles.button, {backgroundColor: '#2d2c46'}]}>
               <Text style={[styles.textButton, {color: 'white', fontSize: 30}]}>
                 {button}
               </Text>
@@ -112,7 +113,7 @@ export default function App() {
               <Text
                 style={[
                   styles.textButton,
-                  {color: typeof button === 'number' ? 'black' : '#0093a6'},
+                  {color: typeof button === 'number' ? 'white' : '#989499'},
                 ]}>
                 {button}
               </Text>
@@ -132,10 +133,10 @@ const styles = StyleSheet.create({
   results: {
     flex: 2,
     justifyContent: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#2d2c46',
   },
   resultText: {
-    color: '#282F38',
+    color: '#ffffff',
     fontSize: 32,
     fontWeight: 'bold',
     padding: 12,
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   button: {
-    backgroundColor: 'white',
+    backgroundColor: '#3c0068',
     alignItems: 'center',
     justifyContent: 'center',
     minWidth: 90,
@@ -160,7 +161,7 @@ const styles = StyleSheet.create({
     flex: 2,
   },
   textButton: {
-    color: '#7c7c7c',
+    color: '3c0068',
     fontSize: 20,
   },
 });
